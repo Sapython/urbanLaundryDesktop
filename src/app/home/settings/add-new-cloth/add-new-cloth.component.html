@@ -1,0 +1,18 @@
+<main>
+    <h3>{{title | titlecase}}</h3>
+    <form [formGroup]="clothForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Cloth Name</mat-label>
+            <input
+              matInput
+              formControlName="name"
+              placeholder="Cloth Name"
+              type="text"
+            />
+          </mat-form-field>
+          <div class="actions">
+            <button mat-flat-button color="primary" (click)="dialogRef.close(clothForm.value)">Submit</button>
+            <button mat-stroked-button (click)="dialogRef.close()">Cancel</button>
+          </div>
+    </form>
+</main>

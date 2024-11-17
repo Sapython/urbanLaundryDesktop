@@ -1,0 +1,16 @@
+<section>
+    <h3>Assign Agent</h3>
+    <p>Order Id: {{data.id}}</p>
+    <mat-form-field appearance="outline">
+        <mat-label>Agent</mat-label>
+        <mat-select placeholder="Agent" [(ngModel)]="selectedValue" name="agent">
+            <mat-option *ngFor="let agent of agents" [value]="agent">
+                {{agent.displayName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div class="actions">
+        <button mat-flat-button (click)="dialogRef.close()">Cancel</button>
+        <button mat-flat-button color="primary" (click)="submit()" color="primary" cdkFocusInitial>Assign</button>
+    </div>
+</section>

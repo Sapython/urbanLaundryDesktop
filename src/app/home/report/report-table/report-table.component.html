@@ -1,0 +1,95 @@
+<div class="reportCont">
+
+ 
+
+    <div class="report">
+      <div class="heading">
+  <p >
+    Orders Redivort (145)
+  </p>
+  <div id="buttons">
+    <button mat-raised-button color="primary" >  <mat-icon>filter_list</mat-icon>Clear Filter</button>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Start date" />
+        <input matEndDate formControlName="end" placeholder="End date" />
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+  
+      <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')"
+        >Invalid start date</mat-error
+      >
+      <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')"
+        >Invalid end date</mat-error
+      >
+    </mat-form-field>
+    <button  mat-stroked-button color="primary" ><mat-icon>keyboard_arrow_down</mat-icon> Export</button>
+  </div>
+      </div>
+      
+      
+  
+      <table>
+        <thead>
+          
+          <tr>
+            <th width="10%">ID</th>
+            <th width="15%">Contact No.</th>
+            <th width="10%">No. of Item</th>
+            <th width="10%">Status</th>
+            <th width="10%">Type</th>
+            <th width="15%">Order Date</th>
+            <th width="10%">Time Of Order</th>
+            <th width="10%">Amount</th>
+          </tr>
+          
+        </thead>
+        <tbody>
+  
+          <tr >
+            <td width="10%" data-label="ID">#12333</td>
+            <td width="15%" data-label="Contact No.">+9123312222</td>
+            <td width="10%" data-label="No. of Item">
+            34
+            </td>
+            <td width="10%" data-label="Status">
+              <button  class="red">Pending</button>
+              <!-- <button  class="orange">Pending</button> -->
+            </td>
+            <td width="10%" data-label="Type">
+              Wash & Iron
+            </td>
+            <td width="15%" data-label="Order Date">
+            
+              <button class="blue">38</button>
+            </td>
+           
+            <td width="10%" data-label="Time Of Order">
+           
+                 7:55 PM
+            
+          </td>
+            <td width="10%" data-label="Amount">
+             
+              <button  class="green">
+                Rs.777
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        
+      </div>
+    
+  </div>
+  </div>
+  
+  

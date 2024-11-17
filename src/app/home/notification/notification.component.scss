@@ -1,0 +1,174 @@
+.header_bar {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    .div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap:1rem
+    }
+    button {
+      color: var(--color-tertiary);
+      background-color: var(--color-secondary);
+      border: none;
+      min-width: 8rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.3rem;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        display: flex;
+        align-items:center ;
+        gap: 1rem;
+        justify-content: center;
+    i{
+      font-size: 1.2rem;
+    }
+      }
+  }
+  .notifications{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    height: fit-content;
+    .notification{
+        height:fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .5rem 2rem ;
+        width: 95%;
+        margin: 0 auto;
+        border-bottom: 1px solid rgba(94, 94, 94, 0.668);
+        b{
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .buttons{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            button{
+                color:var(--color-primary);
+                border: none;
+                padding: 0.5rem 1rem;
+                border-radius: 0.3rem;
+                box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+                rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+                border: 1px solid var(--color-secondary);
+                
+                background-color: var(--color-quaternary);
+                &:hover{
+                   
+                    
+                background-color: var(--color-secondary);
+                color: var(--color-quaternary);
+                }
+            }
+        }
+        strong{
+            font-size: 0.8rem;
+            color: var(--color-secondary);
+            font-weight: 600;
+        }
+        p{
+            font-size: 0.8rem;
+            color: var(--color-quinary);
+            font-weight: 600;
+        }
+        i{
+            font-size: 1.2rem;
+          
+            font-weight: 600;
+        }
+        &:hover{
+            background-color: var(--color-quaternary);
+        }
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            padding: 1rem;
+            .buttons{
+                display: none;
+            }
+            b{
+                font-size: 0.8rem;
+            }
+            strong{
+                font-size: 0.6rem;
+            }
+            p{
+                font-size: 0.6rem;
+            }
+            i{
+                margin: 0 .5rem;
+                font-size: 1rem;
+            }
+        
+            
+        }
+    }
+    @media screen and (max-width: 768px) {
+
+        margin: 5rem 0;        
+    }
+  }
+   
+
+.uk-modal-dialog{
+      top: 30%;
+    border-radius: .5rem;
+    width: 30%;
+    margin: auto;
+    p{
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-secondary);
+        text-align: center;
+    }
+    .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem 0;
+        button{
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.3rem;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+            rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+            border: 1px solid var(--color-secondary);
+            width: 7rem;
+            background-color: var(--color-quaternary);
+            color: var(--color-secondary);
+            &:hover{
+                color:var(--color-quaternary);
+                
+                background-color: var(--color-secondary);
+                
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        width: 90%;
+        margin: auto;
+        p{
+            font-size: 0.8rem;
+        }
+        .buttons{
+            button{
+                width: 100%;
+            }
+        }
+    }
+  }

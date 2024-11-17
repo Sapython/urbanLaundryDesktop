@@ -1,0 +1,87 @@
+main {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+
+    form {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 10px;
+
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .sourceImage{
+                width: 200px;
+                max-height: 400px;
+            }
+            .row {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .tableContainer {
+                max-height: 400px;
+                overflow-y: scroll;
+                border: 2px solid rgb(228, 228, 228);
+                border-radius: 7px;
+                box-shadow: 0 5px 10px 0 rgb(227, 227, 227);
+                padding: 10px;
+                padding-top: 0px;
+                table {
+                    width: 100%;
+                    border-radius: 20px;
+                    tr:nth-child(1) {
+                        // background-color: var(--color-secondary);
+                        color: var(--color-secondary);
+                        border-top-left-radius: 20px;
+                        position: sticky;
+                        top: 0;
+                        z-index: 9999;
+                        border-bottom: 2px solid rgb(195, 195, 195);
+                        th {
+                            padding-top: 30px;
+                            // border-top-left-radius: 20px;
+                            border-bottom: 2px solid rgb(195, 195, 195);
+                        }
+                    }
+
+                    tr:last-child {
+                        border-top-right-radius: 20px;
+
+                        td:last-child {
+                            border-top-right-radius: 20px;
+                        }
+                    }
+
+                    tr {
+                        background-color: white;
+                        td,
+                        th {
+                            // border: 2px solid rgb(228, 228, 228);
+                            text-align: center;
+                            padding: 7px;
+                        }
+
+                        td:nth-child(1),
+                        th:nth-child(1) {
+                            text-align: left;
+                        }
+
+                        td:last-child,
+                        th:last-child {
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+    }
+}

@@ -1,0 +1,111 @@
+<p class="welcomt">Good {{greet}} {{this.dataProvider.userData?.displayName || "User"}} </p>
+<div class="charts">
+  <div class="chart">
+    <div class="heading">
+      <h5>Daily Sales</h5>
+      <div class="uk-inline">
+        <button class="uk-button uk-button-default" type="button">
+          <i class="ri-arrow-drop-down-line"></i>
+          Month
+        </button>
+        <div uk-dropdown class="uk-dropdown">
+          <ul>
+            <li>Jan</li>
+            <li>Feb</li>
+            <li>March</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <canvas id="line" width="100%" height="100%"></canvas>
+  </div>
+  <div class="chart">
+    <div class="heading">
+      <h5>Total Customer</h5>
+      <div class="uk-inline">
+        <button class="uk-button uk-button-default" type="button">
+          <i class="ri-arrow-drop-down-line"></i>
+          Past 7 Days
+        </button>
+        <div uk-dropdown class="uk-dropdown">
+          <ul>
+            <li>Jan</li>
+            <li>Feb</li>
+            <li>March</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <canvas id="barChart" ></canvas>
+  </div>
+  <div class="orders">
+    <div class="ongoingOrders">
+      <h3>Ongoing Order</h3>
+      <div class="boxes">
+        <div class="newProj" uk-toggle="target: #newBooking" style="cursor: pointer;">
+            <i class="ri-add-line"></i>
+        </div>
+        <div class="box">
+          <h5>#UL125-3326</h5>
+          <b>Raviraj</b>
+          <p>4140 Parker Rd. Allentown, New Mexico 31134
+            <br>
+            Cloths : 08
+          </p>
+   
+          <button>Finish Order</button>
+        </div>
+        <div class="box">
+            <h5>#UL125-3326</h5>
+            <b>Raviraj</b>
+            <p>4140 Parker Rd. Allentown, New Mexico 31134
+              <br>
+              Cloths : 08
+            </p>
+     
+            <button>Finish Order</button>
+          </div>
+          <div class="box">
+            <h5>#UL125-3326</h5>
+            <b>Raviraj</b>
+            <p>4140 Parker Rd. Allentown, New Mexico 31134
+              <br>
+              Cloths : 08
+            </p>
+     
+            <button>Finish Order</button>
+          </div>
+      </div>
+    </div>
+    <div class="Preformance">
+        <h3>Ongoing Preformance</h3>
+<img src="assets/cart.png" class="cart">
+<!-- <circle-progress
+  [percent]="20"
+  [radius]="100"
+  [outerStrokeWidth]="16"
+  [innerStrokeWidth]="8"
+  [outerStrokeColor]="'#78C000'"
+  [innerStrokeColor]="'#C7E596'"
+  [animation]="true"
+  titleFontSize="45"
+  
+  subtitleFontSize="18"
+  [animationDuration]="300"
+  [showSubtitle]="true"
+  [showSubtitle]="false"
+  unitsFontSize="20"
+
+></circle-progress> -->
+<p>64 Orders Finished</p>
+<b>36 Orders Left</b>
+    </div>
+  </div>
+</div>
+<div id="search-modal" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+      <h2 class="uk-modal-title"></h2>
+      <button class="uk-modal-close" type="button"></button>
+  </div>
+</div>
+<app-user-modal></app-user-modal>

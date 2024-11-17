@@ -1,0 +1,144 @@
+<div class="container">
+  <div class="header_bar">
+    <div class="uk-inline">
+      <button class="uk-button uk-button-default" type="button">
+        <!-- <i class="ri-arrow-drop-down-line"></i> -->
+        <i class="ri-arrow-drop-down-line"></i>
+        All Orders
+      </button>
+      <div uk-dropdown class="uk-dropdown">
+        <ul>
+          <li>All</li>
+          <li>Ordered</li>
+          <li>Canceled</li>
+        </ul>
+      </div>
+    </div>
+    <button uk-toggle="target: #newBooking">
+      <i class="ri-add-line"></i>
+      New Booking
+    </button>
+    <mat-form-field appearance="fill">
+      <mat-label>Start Date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker">
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+      
+    <mat-form-field appearance="fill">
+      <mat-label>End Date</mat-label>
+      <input matInput [matDatepicker]="picker2">
+      <mat-datepicker-toggle matSuffix [for]="picker2">
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="orderCards">
+    <div class="orderCard">
+      <p>New Orders</p>
+      <div class="bar">
+        <b> 245 </b>
+        | impressive -20%
+
+        <button>
+          <i class="ri-arrow-up-line"></i>
+        </button>
+      </div>
+    </div>
+    <div class="orderCard">
+      <p>New Orders</p>
+      <div class="bar">
+        <b> 245 </b>
+        | impressive -20%
+
+        <button>
+          <i class="ri-arrow-up-line"></i>
+        </button>
+      </div>
+    </div>
+    <div class="orderCard">
+      <p>New Orders</p>
+      <div class="bar">
+        <b> 245 </b>
+        | impressive -20%
+
+        <button>
+          <i class="ri-arrow-up-line"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="orderTable">
+    <button id="report"><i class="ri-download-line"></i> Report</button>
+    <table>
+    
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">No. of Item</th>
+          <th scope="col">Status</th>
+          <th scope="col">Type</th>
+          <th scope="col">Order Date</th>
+          <th scope="col">Time Of Order</th>
+          <th scope="col">Total</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="ID">#UL13-072</td>
+          <td data-label="Name">Arun Arora</td>
+          <td data-label="No. of Item">21</td>
+          <td data-label="Status">
+            <button>Cancel</button>
+          </td>
+          <td data-label="Type">
+            <div>12 April 2021</div>
+          </td>
+          <td data-label="Order Date">12:00 PM</td>
+          <td data-label="Time Of Order">$1,190</td>
+          <td data-label="Total">            <div>1299</div></td>
+          <td data-label="Action">            <button>Cancel</button></td>
+
+        </tr>
+        <tr>
+          <td data-label="ID">#UL13-072</td>
+          <td data-label="Name">Arun Arora</td>
+          <td data-label="No. of Item">21</td>
+          <td data-label="Status">
+            <button>Cancel</button>
+          </td>
+          <td data-label="Type">
+            <div>12 April 2021</div>
+          </td>
+          <td data-label="Order Date">12:00 PM</td>
+          <td data-label="Time Of Order">$1,190</td>
+          <td data-label="Total">            <div>1299</div></td>
+          <td data-label="Action">            <button>Cancel</button></td>
+
+        </tr>
+        <tr>
+          <td data-label="ID">#UL13-072</td>
+          <td data-label="Name">Arun Arora</td>
+          <td data-label="No. of Item">21</td>
+          <td data-label="Status">
+            <button>Cancel</button>
+          </td>
+          <td data-label="Type">
+            <div>12 April 2021</div>
+          </td>
+          <td data-label="Order Date">12:00 PM</td>
+          <td data-label="Time Of Order">$1,190</td>
+          <td data-label="Total">            <div>1299</div></td>
+          <td data-label="Action">            <button>Cancel</button></td>
+
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-user-modal></app-user-modal>

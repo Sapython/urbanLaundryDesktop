@@ -1,0 +1,55 @@
+<div class="Lato600 fs-18 my-4">Customer Details</div>
+<div class="d-flex w-100 justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+        <div class="img-outer">
+            <img [src]="userData?.photoURL" alt="">
+        </div>
+        <div class="ms-2">
+            <div class="Lato400 fs-16">Name : {{userData?.displayName }}</div>
+            <div class="Lato400 fs-16 mt-2">Email : {{userData?.email }}</div>
+        </div>
+    </div>
+    <div>
+        <div class="d-flex align-items-center">
+            <mat-icon>location_on</mat-icon>
+            <div class="Lato400 fs-16 ms-3">{{userData?.currentAddress?.address }}</div>
+        </div>
+        <div class="d-flex align-items-center mt-2">
+            <mat-icon>call</mat-icon>
+            <div class="Lato400 fs-16 ms-3">Phone : {{userData?.phone }}</div>
+        </div>
+    </div>
+    <div class="d-flex align-items-center">
+        <div><mat-icon>call</mat-icon></div>
+        <div class="ms-3"><mat-icon>mail</mat-icon></div>
+    </div>
+</div>
+
+<table class="uk-table ">
+    <thead class="borderGrey BR10">
+      <tr>
+        <th>Orders</th>
+        <th>Services</th>
+        <th>Weight</th>
+        <th>Pickup Time</th>
+        <th>Delivery Time</th>
+        <th>Status</th>
+        <th>total Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let booking of AllBookings">
+        <tr class="borderGrey BR10" *ngIf="booking.userDetails.userId == userData.id">
+          <td class="text-uppercase">{{booking.id | slice:0:6}}</td>
+          <td class="Lato400 fs-14"><span *ngFor="let services of booking.services">{{services.name}} , </span></td>
+          <td class="Lato400 fs-14">12kg</td>
+          <td class="Lato400 fs-14">{{booking.slot.date.toDate() | date }}, {{booking.slot.date.toDate() | date:'h:mm a' }}</td>
+          <td class="Lato400 fs-14">{{booking.slot.date.toDate() | date }}, {{booking.slot.date.toDate() | date:'h:mm a' }}</td>
+          <td class="Lato400 fs-14">{{booking.stage.stage}}</td>
+          <td class="Lato400 fs-14">{{booking.billingDetail.total}}</td>
+        </tr>
+      </ng-container>
+
+
+    </tbody>
+  </table>

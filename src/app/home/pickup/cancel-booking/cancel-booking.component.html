@@ -1,0 +1,8 @@
+<section>
+    <h4>Cancel Booking</h4>
+    <p>Are you sure you want to cancel this booking ?</p>
+    <div class="actions">
+        <button color="primary" mat-flat-button (click)="dialogRef.close({cancelled:true})">Yes</button>
+        <button color="warn" mat-stroked-button (click)="dialogRef.close({cancelled:false})">No</button>
+    </div>
+</section>

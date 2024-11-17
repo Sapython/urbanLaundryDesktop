@@ -1,0 +1,50 @@
+<div id="container">
+  <div class="header_bar">
+    <b>NOTIFICATION</b>
+    <div class="div">
+      <button>
+        <i class="ri-check-double-line"></i>
+        Mark All as Read
+      </button>
+      <button uk-toggle="target: #delete-notifications">
+        <i class="ri-delete-bin-6-line"></i>
+        Clear All
+      </button>
+    </div>
+  </div>
+  <div class="notifications">
+    <div class="notification">
+      <h5>
+        <b> New Order </b>
+
+        <br />
+        <strong>Mahesh chopra</strong> paidx 3000 as monthly installment of the
+        7th month (July)......
+        <strong>
+
+            Know More
+        </strong>
+      </h5>
+      <div class="buttons">
+        <button>Cancel</button>
+        <button>Accept</button>
+      </div>
+      <p>
+        Today <br />
+        12:00
+      </p>
+      <i class="ri-delete-bin-6-line" style="color:red"></i>
+    </div>
+  
+  </div>
+</div>
+<div id="delete-notifications" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+      
+    <p>Are You Sure To Clear All Notification</p>
+    <div class="buttons">
+      <button uk-toggle="target: #delete-notifications">Cancel</button>
+      <button uk-toggle="target: #delete-notifications">Delete</button>
+    </div>
+  </div>
+</div>

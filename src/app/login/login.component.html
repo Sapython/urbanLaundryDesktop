@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="card">
+    <img src="assets/mainIcon.png" class="logo" />
+    <ng-container *ngIf="!dataProvider.gettingUserData && !this.dataProvider.loggedIn">
+      <p class="text1">Sign In</p>
+      <form
+        class="sign_in_Form"
+        [formGroup]="loginForm"
+        (ngSubmit)="loginWithEmail()"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="Email"
+            formControlName="email"
+            type="email"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            placeholder="Password"
+            formControlName="password"
+            type="password"
+          />
+        </mat-form-field>
+        <p class="forgot">Forget Password?</p>
+        <button class="commonButton" type="submit">Sign In</button>
+        <!-- <p >Don't Have a account? <b style="cursor: pointer;"  routerLink="../signup" > Sign Up</b></p> -->
+      </form>
+      <button mat-stroked-button color="primary" (click)="googleSignIn()"><span uk-icon="icon: google"></span> Sign In With Google</button>
+    </ng-container>
+    <ng-container *ngIf="!dataProvider.gettingUserData && this.dataProvider.loggedIn">
+      <p class="text1">You are Logged In</p>
+      <img src="assets/noAccess.svg">
+      <button class="commonButton" routerLink="../admin">Continue To Admin Panel</button>
+      <button class="commonButton" (click)="logout()">Logout</button>
+    </ng-container>
+    <ng-container *ngIf="dataProvider.gettingUserData">
+      <p class="text1">Getting User Data</p>
+      <div uk-spinner="ratio:2"></div>
+    </ng-container>
+  </div>
+</div>

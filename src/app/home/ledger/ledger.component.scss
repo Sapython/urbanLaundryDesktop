@@ -1,0 +1,9 @@
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.w-set{
+    width: 100%;
+    min-width: 200px;
+    max-width: 200px;
+}

@@ -1,0 +1,101 @@
+<main>
+  <h2>{{data.mode =='edit' ? 'Update Service':'Add New Service'}}</h2>
+  <form [formGroup]="addNewServiceForm" (ngSubmit)="submitService()">
+    <section>
+      <h4>Basic Details</h4>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Name" />
+      </mat-form-field>
+      <mat-slide-toggle formControlName="type" #type>By Weight</mat-slide-toggle>
+      <mat-slide-toggle formControlName="enabled">Disable/Enable</mat-slide-toggle>
+      <mat-form-field appearance="outline" *ngIf="type.checked">
+        <mat-label>Total Cost Per Kg</mat-label>
+        <input matInput formControlName="costPerKg" placeholder="Name" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+        <textarea
+        cols="6"
+          matInput
+          formControlName="name"
+          placeholder="Description"
+          ></textarea>
+        </mat-form-field>
+        <img class="sourceImage" [src]="imageSource" *ngIf="imageSource">
+        <input (change)="imageSelected($event)" hidden type="file" #file />
+        <button type="button" mat-stroked-button (click)="file.click()" color="primary">
+          Upload Image
+        </button>
+    </section>
+    <section>
+      <div class="row">
+        <h4>Clothes Pricing</h4>
+        <button type="button" (click)="addCloth()" color="primary" mat-flat-button>
+          <mat-icon>add</mat-icon> Cloth
+        </button>
+      </div>
+      <div class="tableContainer">
+        <table [cellSpacing]="0">
+          <tr>
+            <th>Name</th>
+            <th *ngIf="!type.checked">Price</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let cloth of clothes; let i = index">
+            <ng-container>
+              <td>
+                <mat-form-field appearance="outline">
+                  <mat-label>Select Cloth</mat-label>
+                  <mat-select
+                    [ngModelOptions]="{ standalone: true }"
+                    placeholder="Placeholder"
+                    [(ngModel)]="cloth.title"
+                  >
+                    <mat-option
+                      *ngFor="let item of clothTypes"
+                      [value]="item.title"
+                    >
+                      {{ item.title }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="!type.checked">
+                <mat-form-field appearance="outline">
+                    <mat-label>Price</mat-label>
+                    <input
+                      matInput
+                      [ngModelOptions]="{ standalone: true }"
+                      [(ngModel)]="cloth.cost"
+                      placeholder="Price"
+                      type="number"
+                    />
+                  </mat-form-field>
+              </td>
+              <td>
+                <button mat-icon-button type="button" color="warn" (click)="deleteCloth(cloth, i)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+          </tr>
+          <tr *ngIf="clothes.length == 0">
+            <td colspan="3">
+              No clothes added click on
+              <button (click)="addCloth()" mat-icon-button color="primary">
+                <mat-icon>add</mat-icon>
+              </button>
+              to add new clothes.
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <p></p>
+    <div class="actions">
+      <button mat-raised-button type="submit" color="primary">{{data.mode =='edit' ? 'Edit':'Save'}}</button>
+      <button mat-raised-button type="reset" color="warn">Cancel</button>
+    </div>
+  </form>
+</main>

@@ -1,0 +1,64 @@
+.img-outer {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    max-width: 70px;
+    min-height: 70px;
+    max-height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+
+    }
+}
+
+.form-select {
+    display: block;
+    width: 100%;
+    padding: .365rem 2.25rem .365rem .75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #579540;
+    background-color: rgba(87, 149, 64, 0.15);
+    ;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #579540;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.head {
+    background: white;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    padding: .365rem 2.25rem .365rem .75rem;
+}
+
+.w-set {
+    max-width: 150px;
+    margin-left: 15px;
+    min-width: 70px;
+}
+
+
+
+.grid-2 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr auto;
+    background: #FFFFFF;
+  
+  }

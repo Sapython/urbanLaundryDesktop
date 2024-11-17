@@ -1,0 +1,280 @@
+.header_bar {
+  width: 100%;
+  min-height: 10vh;
+  height: fit-content;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: fle;
+  justify-content: flex-end;
+
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+  .mat-form-field,button,.uk-inline{
+    height:3.7rem;
+    width: 12rem;
+    padding: 0;
+    margin: 0;
+    border-radius: .9rem;
+    font-size: 1rem;
+    transform: scale(.8);
+
+    button{
+      // font-size: 0.6rem;  
+      background: transparent;
+      border: none;
+    height: 100%;
+    } 
+    i{
+font-size: 1rem;
+margin: 0;
+
+}
+ul{
+  cursor: pointer;
+  padding: 0;
+  list-style-type: none;
+  li{
+    list-style-type: none;
+    padding: 0.5rem;
+    &:hover{
+      background-color: var(--color-secondary);
+      color: #fff;
+      
+    }
+  }
+}
+    cursor: pointer;
+    color: var(--color-tertiary);
+    background-color: var(--color-secondary);
+    border: none;
+    min-width: 9rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    input{
+      background-color: transparent;
+      border: none;
+      color: var(--color-quaternary);
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      font-size:.8rem;
+      width: 90%;
+      border: none;
+    }
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+      border-radius: 4px 4px 0 0;
+      padding: 0;
+    }
+  
+  
+    
+  }
+  @media screen and (max-width: 600px) {
+    justify-content: space-between;
+    margin: 0;
+    .mat-form-field,button,.uk-inline{
+   transform: scale(.72);
+   width: 7rem;
+   margin: 0;
+    }
+  }
+
+}
+.orderCards {
+  width: 100%;
+  height: fit-content;
+  min-height: 8rem;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+  .orderCard {
+
+    min-width: 20rem;
+width: 30%;
+    height: 100%;
+    min-height: 7rem;
+    border-radius: 0.6rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    padding: 1rem;
+
+    p {
+      margin: 0;
+      color: var(--color-quinary);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .bar {
+      height: 0.1rem;
+      margin: 1rem 0;
+      font-size: 1.2rem;
+      color: var(--color-quinary);
+    }
+    button {
+      color: var(--color-tertiary);
+      background-color: var(--color-secondary);
+      border-radius: 50%;
+      border: none;
+      height: 1.7rem;
+      width: 1.7rem;
+      font-size: 1.1rem;
+      margin: 0 1rem;
+      
+      
+    }
+    
+  }
+  .orderCard:nth-child(1) {
+    background-color: var(--color-quaternary);
+
+    b {
+      color: green;
+      margin-right: 1rem;
+    }
+  }
+  .orderCard:nth-child(2) {
+    background-color: #eaecff;
+
+    b {
+      color: #0019ff;
+      margin-right: 1rem;
+    }
+  }
+  .orderCard:nth-child(3) {
+    background-color: #ffeaea;
+
+    b {
+      color: #ff0000;
+      margin-right: 1rem;
+    }
+  }
+  @media screen and (max-width: 650px) {
+    
+  justify-content: center;
+  .orderCard{
+    
+    width: 100%;
+  }
+    
+  }
+}
+.orderTable {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 4rem 0;
+  position: relative;
+  #report{
+    background-color: var(--color-secondary);
+    color: var(--color-tertiary);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+    position: absolute;
+    right: 0;
+    top: -3rem;
+    cursor: pointer;
+
+
+  }
+  table {
+    padding: 2rem 0;;
+    width: 100%;
+    tr {
+      border: 2px solid green;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0.6rem;
+      text-align: center;
+    }
+    td {
+      font-weight: 400;
+      cursor: pointer;
+      button {
+        border-radius: 0.6rem;
+        border: 1px solid #f56606;
+        background-color: #ffe0d1;
+        color: #f56606;
+        padding: 0.3rem 0.6rem;
+      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .date {
+        border-radius: 0.6rem;
+        border: 1px solid #3c95bc;
+        background-color: #c3dbff;
+        font-size: 0.8rem;
+        color: #3c95bc;
+        padding: 0.3rem;
+        width: 4rem;
+
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+  
+    table caption {
+      font-size: 1.3em;
+    }
+    
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      width: 100%;
+      display: block;
+      font-size: 1em;
+      text-align: right;
+      margin: 1rem 0;
+    }
+    
+    table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.uk-dropdown {
+  padding: 0;
+}

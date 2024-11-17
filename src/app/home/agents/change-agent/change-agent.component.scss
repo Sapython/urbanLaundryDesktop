@@ -1,0 +1,44 @@
+    .container{
+        width: 25vw;
+        height: 50vh;
+        background-color: white;
+        border-radius: 1rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+p{
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-black);
+    font-weight: 600;
+}
+.buttons{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+
+   
+    padding: 1rem 0;
+    button{
+        width: 48%;
+        height: 2.5rem;
+        cursor: pointer;
+    }
+}
+}
+mat-form-field{
+    width: 80%;
+    margin: 1rem 0;
+}
+@media screen and (max-width: 768px){
+    .container{
+        width: 90vw;
+        height: 50vh;
+        p{
+            font-size: 1rem;
+        }
+    }
+    
+}

@@ -1,0 +1,14 @@
+section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:20px;
+    mat-card{
+        width: 300px;
+        height: 150px;
+        transition: scale 0.3s ease-in-out;
+    }
+    mat-card:hover{
+        scale: 1.05;
+    }
+}

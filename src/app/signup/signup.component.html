@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="card">
+      <img src="assets/mainIcon.png" class="logo" />
+      <p class="text2">Sign Up</p>
+      <form class="signup_Form" [formGroup]="signUpForm" (ngSubmit)="signUpWithEmailAndPassword()" >
+        <div class="form_box" >
+            <label>Full Name</label>
+            <input placeholder="Full Name"  formControlName="username" />
+          </div>
+        <div class="form_box">
+          <label>Email Address</label>
+          <input placeholder="create@shreeva.com"  formControlName="email" />
+        </div>
+        <div class="form_box">
+          <label>Password</label>
+          <input type="password"   formControlName="password"  />
+        </div>
+        <div class="form_box">
+            <label>Confirm Password</label>
+            <input type="password"  />
+          </div>
+        <p class="forgot">Forget Password?</p>
+  
+  <button class="signupWithgoogle">SignUp With Google <i class="ri-google-fill"></i></button>
+        <button class="signUpButton" >Sign In</button>
+        <p >Already Have a account? <b style="cursor: pointer;"  routerLink="../login" > Sign In</b></p>
+      </form>
+    </div>
+  </div>
+  

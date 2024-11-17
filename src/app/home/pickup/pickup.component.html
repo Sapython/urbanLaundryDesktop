@@ -1,0 +1,299 @@
+<!--  NEW UI -->
+<div class="header">
+  <div class="w-100 d-flex justify-content-end my-3">
+    <button class="mx-3" mat-stroked-button color="primary">
+      <mat-icon>refresh</mat-icon>Refresh
+    </button>
+    <button class="mx-3" mat-stroked-button color="primary">
+      <mat-icon>filter</mat-icon>Clear Filter
+    </button>
+    <button mat-raised-button color="primary">
+      Enter the date Range<mat-icon>filter</mat-icon>
+    </button>
+  </div>
+</div>
+
+
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+  <mat-tab label="Time Slot">
+
+    <mat-expansion-panel *ngFor="let slot of pendingPickups" [expanded]="false" class="mx-1">
+      <mat-expansion-panel-header>
+        <div class="Lato400 fs-16 d-flex align-items-center "><mat-icon class="example-tab-icon">access_time</mat-icon>
+          <span class="ms-2"><span class="Lato600">Time Slot :</span> {{slot.slot}}</span>
+        </div>
+      </mat-expansion-panel-header>
+      
+      <div class="d-flex">
+        <div class="agentCard" *ngFor="let booking of slot.bookings">
+          <div class="d-flex justify-content-between align-items-center w-100 p-2">
+            <div class="text-uppercase Lato400 fs-14">#{{booking.id| slice:0:6}}</div>
+            <div><button mat-stroked-button color="warn">{{booking.stage.stage | titlecase}}</button></div>
+          </div>
+
+          <div class="img-outer">
+            <img [src]="booking.userDetails.photoURL || 'assets/user.png'" referrerPolicy="no-referrer" />
+          </div>
+
+          <div class="d-flex  align-items-center justify-content-center">
+            <div class="Lato600 fs-16  ">{{booking.userDetails.displayName || 'N/A'}}</div>
+            <button mat-icon-button color="primary">
+              <mat-icon>phone</mat-icon>
+            </button>
+          </div>
+          <div class="border"></div>
+          <div class=" fs-15 Lato400 px-3 text-start w-100 mt-2"><span class="Lato600">Area :</span>
+            {{booking.userDetails?.pickupAddress || 'N/A'}}</div>
+          <div class=" fs-15 Lato400 px-3 mt-2 text-start w-100"><span class="Lato600">Services : </span><span
+              *ngFor="let services of booking.services">{{services.name}},</span></div>
+
+          <div class="d-flex justify-content-center align-items-center w-100 p-3">
+            <button mat-stroked-button color="warn" (click)="cancelBooking(booking)" class="w-100">Cancel</button>
+            <button mat-flat-button color="primary" (click)="assignAgent(booking)" class="w-100">Accept</button>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+
+  </mat-tab>
+
+
+  <mat-tab label="Agent">
+
+    <mat-expansion-panel [expanded]="false" *ngFor="let agent of incompletePickups" class="mx-1" >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="agent-img-outer">
+            <img [src]="agent?.agent.image" />
+          </div>
+          <span class="Lato400 fs-16">{{agent?.agent.name | titlecase}}</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="d-flex justify-content-between w-100">
+        <div class="w-100">
+          <div class="Lato600 fs-16">Completed</div>
+          <table class="uk-table ">
+
+            <thead class="borderGrey BR10">
+              <tr>
+                <th>Order Id</th>
+                <th>Customer Name</th>
+                <th>Service</th>
+                <th>Location</th>
+                <th>Stage</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="borderGrey BR10" *ngFor="let booking of agent.pickups">
+                <td class="text-uppercase">{{booking?.id | slice:0:6}}</td>
+                <td>{{booking?.userDetails.displayName | slice:0:12}}</td>
+                <td>{{cropChange(getServiceNames(booking.services))}}</td>
+                <td>{{booking.userDetails?.pickupAddress }}</td>
+                <td>{{booking.stage.stage | titlecase}}</td>
+                <td><button color="primary" mat-flat-button (click)="assignAgent(booking)">Re-Assign</button></td>
+                <td><button color="warn" mat-stroked-button (click)="cancelBooking(booking)">Cancel</button></td>
+                <td><button color="warn" mat-icon-button><mat-icon>info</mat-icon></button></td>
+              </tr>
+
+
+            </tbody>
+
+          </table>
+        </div>
+        <div class="w-100 ps-2">
+          <div class="Lato600 fs-16">Not Completed</div>
+          <table class="uk-table">
+
+            <thead class="borderGrey BR10">
+              <tr>
+                <th>Order Id</th>
+                <th>Customer Name</th>
+                <th>Service</th>
+                <th>Location</th>
+                <th>Stage</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="borderGrey BR10" *ngFor="let booking of agent.pickups">
+                <td class="text-uppercase">{{booking?.id | slice:0:6}}</td>
+                <td>{{booking?.userDetails.displayName | slice:0:12}}</td>
+                <td>{{cropChange(getServiceNames(booking.services))}}</td>
+                <td>{{booking.userDetails?.pickupAddress }}</td>
+                <td>{{booking.stage.stage | titlecase}}</td>
+                <td><button color="primary" mat-flat-button (click)="assignAgent(booking)">Re-Assign</button></td>
+                <td><button color="warn" mat-stroked-button (click)="cancelBooking(booking)">Cancel</button></td>
+                <td><button color="warn" mat-icon-button><mat-icon>info</mat-icon></button></td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+
+      </div>
+    </mat-expansion-panel>
+
+  </mat-tab>
+</mat-tab-group>
+
+
+<div id="details-id" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <div class="button" uk-toggle="target: #details-id" style="
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        border-radius: 50%;
+        height: 2rem;
+        width: 2rem;
+        border: 2px solid grey;
+        color: grey;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      ">
+      <i class="ri-close-fill"></i>
+    </div>
+    <span>
+      <b>Pickup Details of #UL13072</b>
+      <button>Pending For Pickup</button>
+    </span>
+    <p>Customer Details</p>
+    <div class="card">
+      <img src="https://i.pravatar.cc/300" alt="" />
+      <div>
+        Name: Arun Arora <br />
+        Email: Example@gmail.com
+      </div>
+      <div>
+        Robert Robertson, 1234 NW Bobcat Lane<br />
+        Phone: 9995566633
+      </div>
+      <div>
+        <i class="ri-phone-fill"></i>
+        <i class="ri-mail-line"></i>
+      </div>
+    </div>
+    <p>Pickup Agent Details</p>
+    <div class="card">
+      <img src="https://i.pravatar.cc/300" alt="" />
+      <div>
+        Name: Ashish Rohra <br />
+        Email: Example@gmail.com
+      </div>
+      <div>
+        Robert Robertson, 1234 NW Bobcat Lane<br />
+        Phone: 9995566633
+      </div>
+      <div>
+        <i class="ri-phone-fill"></i>
+        <i class="ri-mail-line"></i>
+      </div>
+    </div>
+    <p>Order Details</p>
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title style="color: black; display: flex; gap: 3rem">
+            <p>Order ID: #UL13-072</p>
+            <p>Pickup : 12 April, 12:00 PM</p>
+            <p>Expected Delivery : 12 April, 12:00 PM</p>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="tables">
+          <table>
+            <label>Wash & Iron</label>
+
+            <tr>
+              <td>Shirt</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Shirt</td>
+              <td>2</td>
+            </tr>
+            <label> Dry Clean </label>
+            <tr>
+              <td>Shirt</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Shirt</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Total Weight : 3 KG</td>
+              <td>No. of Items : 15</td>
+            </tr>
+          </table>
+          <table class="table">
+            <tbody>
+              <tr>
+                Billing Summary
+              </tr>
+
+              <tr>
+                <td>Shirt</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Shirt</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Shirt</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Shirt</td>
+                <td>2</td>
+              </tr>
+
+              <tr>
+                <td>Total Amount</td>
+                <td>$899</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
+<div id="cancel" uk-modal>
+  <div class="uk-modal-dialog">
+    <h4>Booking Will Be Canceled</h4>
+    <p style="color: grey; font-size: 1rem">Order ID:#UL4520</p>
+    <div class="buttons">
+      <button class="uk-modal-close" type="button" class="delete">
+        Delete
+      </button>
+      <button class="uk-modal-close" type="button " class="cancel">
+        cancel
+      </button>
+    </div>
+  </div>
+</div>
+<div id="change-agent" uk-modal>
+  <div class="uk-modal-dialog">
+    <h4>Assign Agent</h4>
+    <span>Order ID:#UL4520</span>
+    <select>
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+    <div class="buttons">
+      <button class="uk-modal-close" mat-raised-button type="button" class="save">
+        Save
+      </button>
+      <button class="uk-modal-close" mat-raised-button type="button " class="delete">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

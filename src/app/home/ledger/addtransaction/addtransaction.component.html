@@ -1,0 +1,38 @@
+<div id="boxadd">
+    <div class="h211" style="display: flex;width: 100%;align-items: center;justify-content: space-between;">
+    
+        <h4>Debit Details</h4> <br>
+        <h6 style="color: grey;"><i class="ri-time-line" ></i>13 March 2023 ,12.13 PM</h6>
+    </div>
+    
+    <h3 style="color: grey;">transaction ID: #{{transactionDetailForm.value.transactionId}}</h3>
+    <form [formGroup]="transactionDetailForm" (ngSubmit)="submitForm()">
+    <div class="form_box">
+        <label>Amount</label>
+        <input type="number" formControlName="amount">
+    </div>
+    <div class="form_box">
+        <label>Transaction ID</label>
+        <input type="text" formControlName="transactionId">
+    </div>
+    <div class="form_box">
+        <label>Sender</label>
+        <input type="text"  formControlName="from">
+    </div>
+    <div class="form_box">
+        <label>Recipient</label>
+        <input type="text" formControlName="to">
+    </div>
+    <div class="form_box" style="flex-direction: column;">
+        <label>Reason</label> 
+        <textarea type="text"  formControlName="narration">
+    
+        </textarea>
+    </div>
+    <div class="buttons">
+        <button mat-stroked-button color="primary" (click)="dialogRef.close()">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!transactionDetailForm.valid">Save</button>
+    </div>
+    </form>
+    </div>
+    

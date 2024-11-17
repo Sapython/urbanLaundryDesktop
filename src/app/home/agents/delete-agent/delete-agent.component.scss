@@ -1,0 +1,38 @@
+.deleteCont{
+    width: 25vw;
+    height: 20vh;
+    background-color: white;
+    border-radius: .7rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+.buttons{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+
+   
+    padding: 1rem 0;
+    button{
+        width: 45%;
+        height: 2rem;
+        cursor: pointer;}
+}
+.warn{
+    color: green;
+   border: 2px solid green;
+    text-align: center;
+
+}
+.confirm{
+    background-color: red;
+    color: white;
+    border: none;
+    text-align: center;
+
+}
+
+}

@@ -1,0 +1,334 @@
+<div class="actions">
+
+  <div>
+    <button mat-stroked-button color="primary">
+      <mat-icon>refresh</mat-icon>Refresh
+    </button>
+    <button mat-stroked-button color="primary">
+      <mat-icon>filter_list</mat-icon>Clear Filter
+    </button>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Start date" />
+        <input matEndDate formControlName="end" placeholder="End date" />
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+
+    </mat-form-field>
+  </div>
+</div>
+
+
+<mat-accordion>
+  <mat-expansion-panel hideToggle style="margin: .5rem 0; padding:.5rem .8rem ;">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <img
+          src="https://www.w3schools.com/howto/img_avatar.png"
+          alt="Avatar"
+          style="height: 2rem; width: 2rem; border-radius: 50%"
+        />
+        <p style="margin: 0 0.7rem; font-size: 1.1rem; font-weight: 600">
+          Ravi Raj
+        </p>
+      
+        <button mat-icon-button color="primary"  >
+          <mat-icon> call</mat-icon>
+        </button>
+        <button mat-icon-button >
+          <mat-icon>block</mat-icon>
+        </button>
+        <button color="warn"  mat-icon-button  (click)="deleteAgent()" >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="cards">
+      <div class="card">
+        <b>26</b>
+        <p style="margin: 0">Orders</p>
+      </div>
+      <div class="card">
+        <b>26</b>
+        <p style="margin: 0">Delivery Done</p>
+      </div>
+      <div class="card">
+        <b>26</b>
+        <p style="margin: 0">Settled</p>
+      </div>
+      <div class="card unsettled">
+        <b>26</b>
+        <p style="margin: 0">UnSettled</p>
+      </div>
+    </div>
+    <div class="tables">
+      <div class="table">
+        <table>
+         
+          <tr>
+            <th width="15%"  >Order ID</th>
+            <th width="20%">Customer Name</th>
+
+            <th width="15%">Service</th>
+
+            <th width="15%">Area</th>
+            <th width="15%">Actions</th>
+
+            <th width="15%">Job Type</th>
+            <th width="10%"></th>
+          </tr>
+          <tr>
+            <th width="15%"  >#UL4520</th>
+            <th width="20%">Arun Arora</th>
+
+            <th width="15%">Iron</th>
+
+            <th width="15%">Rampur</th>
+            <th width="15%">
+              <button mat-button (click)="changeAgent('9000')" >Agents</button>
+            </th>
+
+            <th width="15%">Pick Up <i class="ri-arrow-up-line"></i></th>
+            <th width="10%">
+              <button mat-icon-button color="primary" (click)="viewUser('id')" >
+                <mat-icon>info</mat-icon>
+              </button>
+            </th>
+          </tr>
+          <tr>
+            <th width="15%"  >#UL4520</th>
+            <th width="20%">Arun Arora</th>
+
+            <th width="15%">Iron</th>
+
+            <th width="15%">Rampur</th>
+            <th width="15%">
+              <button mat-button (click)="changeAgent('9000')" >Agents</button>
+            </th>
+
+            <th width="15%">Pick Up <i class="ri-arrow-up-line"></i></th>
+            <th width="10%">
+              <button mat-icon-button color="primary" (click)="viewUser('id')" >
+                <mat-icon>info</mat-icon>
+              </button>
+            </th>
+          </tr>
+      
+        </table>
+      </div>
+      <div class="table">
+        <table>
+         
+          <tr>
+            <th width="15%"  >Order ID</th>
+            <th width="20%">Customer Name</th>
+
+            <th width="15%">Service</th>
+
+            <th width="15%">Area</th>
+            <th width="15%">Actions</th>
+
+            <th width="15%">Job Type</th>
+            <th width="10%"></th>
+          </tr>
+          <tr>
+            <th width="15%"  >#UL4520</th>
+            <th width="20%">Arun Arora</th>
+
+            <th width="15%">Iron</th>
+
+            <th width="15%">Rampur</th>
+            <th width="15%">
+              <button mat-button (click)="changeAgent('9000')" >Agents</button>
+            </th>
+
+            <th width="15%">Pick Up <i class="ri-arrow-up-line"></i></th>
+            <th width="10%">
+              <button mat-icon-button color="primary" (click)="viewUser('id')" >
+                <mat-icon>info</mat-icon>
+              </button>
+            </th>
+          </tr>
+          <tr>
+            <th width="15%"  >#UL4520</th>
+            <th width="20%">Arun Arora</th>
+
+            <th width="15%">Iron</th>
+
+            <th width="15%">Rampur</th>
+            <th width="15%">
+              <button mat-button (click)="changeAgent('9000')" >Agents</button>
+            </th>
+
+            <th width="15%">Pick Up <i class="ri-arrow-up-line"></i></th>
+            <th width="10%">
+              <button mat-icon-button color="primary" (click)="viewUser('id')" >
+                <mat-icon>info</mat-icon>
+              </button>
+            </th>
+          </tr>
+      
+        </table>
+      </div>
+
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel hideToggle style="margin: .5rem 0; padding:.5rem .8rem ;">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <img
+          src="https://www.w3schools.com/howto/img_avatar.png"
+          alt="Avatar"
+          style="height: 2rem; width: 2rem; border-radius: 50%"
+        />
+        <p style="margin: 0 0.7rem; font-size: 1.1rem; font-weight: 600">
+          Ravi Raj
+        </p>
+        
+        <button mat-icon-button color="primary"  >
+          <mat-icon> call</mat-icon>
+        </button>
+        <button mat-icon-button >
+          <mat-icon>block</mat-icon>
+        </button>
+        <button color="warn"  mat-icon-button (click)="deleteAgent()" >
+          <mat-icon>delete</mat-icon>
+        </button>
+       
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="cards">
+      <div class="card">
+        <b>26</b>
+        <p style="margin: 0">Orders</p>
+      </div>
+      <div class="card">
+        <b>26</b>
+        <p style="margin: 0">Delivery Done</p>
+      </div>
+      <div class="card">
+        <b>26</b>
+        <p style="margin: 0">Settled</p>
+      </div>
+      <div class="card unsettled">
+        <b>26</b>
+        <p style="margin: 0">UnSettled</p>
+      </div>
+    </div>
+    <div class="tables">
+      <div class="table">
+        <table>
+         
+          <tr>
+            <th width="15%"  >Order ID</th>
+            <th width="20%">Customer Name</th>
+
+            <th width="15%">Service</th>
+
+            <th width="15%">Area</th>
+            <th width="15%">Actions</th>
+
+            <th width="15%">Job Type</th>
+            <th width="10%"></th>
+          </tr>
+          <tr>
+            <th width="15%"  >#UL4520</th>
+            <th width="20%">Arun Arora</th>
+
+            <th width="15%">Iron</th>
+
+            <th width="15%">Rampur</th>
+            <th width="15%">
+              <button mat-button (click)="changeAgent('9000')" >Agents</button>
+            </th>
+
+            <th width="15%">Pick Up <i class="ri-arrow-up-line"></i></th>
+            <th width="10%">
+              <button mat-icon-button color="primary" (click)="viewUser('id')" >
+                <mat-icon>info</mat-icon>
+              </button>
+            </th>
+          </tr>
+          <tr>
+            <th width="15%"  >#UL4520</th>
+            <th width="20%">Arun Arora</th>
+
+            <th width="15%">Iron</th>
+
+            <th width="15%">Rampur</th>
+            <th width="15%">
+              <button mat-button (click)="changeAgent('9000')" >Agents</button>
+            </th>
+
+            <th width="15%">Pick Up <i class="ri-arrow-up-line"></i></th>
+            <th width="10%">
+              <button mat-icon-button color="primary" (click)="viewUser('id')" >
+                <mat-icon>info</mat-icon>
+              </button>
+            </th>
+          </tr>
+      
+        </table>
+      </div>
+      <div class="table">
+        <table>
+         
+          <tr>
+            <th width="15%"  >Order ID</th>
+            <th width="20%">Customer Name</th>
+
+            <th width="15%">Service</th>
+
+            <th width="15%">Area</th>
+            <th width="15%">Actions</th>
+
+            <th width="15%">Job Type</th>
+            <th width="10%"></th>
+          </tr>
+          <tr>
+            <th width="15%"  >#UL4520</th>
+            <th width="20%">Arun Arora</th>
+
+            <th width="15%">Iron</th>
+
+            <th width="15%">Rampur</th>
+            <th width="15%">
+              <button mat-button (click)="changeAgent('9000')" >Agents</button>
+            </th>
+
+            <th width="15%">Pick Up <i class="ri-arrow-up-line"></i></th>
+            <th width="10%">
+              <button mat-icon-button color="primary" (click)="viewUser('id')" >
+                <mat-icon>info</mat-icon>
+              </button>
+            </th>
+          </tr>
+          <tr>
+            <th width="15%"  >#UL4520</th>
+            <th width="20%">Arun Arora</th>
+
+            <th width="15%">Iron</th>
+
+            <th width="15%">Rampur</th>
+            <th width="15%">
+              <button mat-button (click)="changeAgent('9000')" >Agents</button>
+            </th>
+
+            <th width="15%">Pick Up <i class="ri-arrow-up-line"></i></th>
+            <th width="10%">
+              <button mat-icon-button color="primary" (click)="viewUser('id')" >
+                <mat-icon>info</mat-icon>
+              </button>
+            </th>
+          </tr>
+      
+        </table>
+      </div>
+
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+]

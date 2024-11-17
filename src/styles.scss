@@ -1,0 +1,244 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
+//  The following line adds:
+//    1. Default typography styles for all components
+//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
+//  If you specify typography styles for the components you use elsewhere, you should delete this line.
+//  If you don't need the default component typographies but still want the hierarchy styles,
+//  you can delete this line and instead use:
+//    `@include mat.legacy-typography-hierarchy(mat.define-legacy-typography-config());`
+@include mat.all-legacy-component-typographies();
+@include mat.legacy-core();
+
+$urbanlaundry-palette: (
+  50: #edffe6,
+  100: #d6fec7,
+  200: #c2e8b3,
+  300: #b2dca3,
+  400: #90c57d,
+  500: #84bc6f,
+  600: #69ab51,
+  700: #579540,
+  800: #478330,
+  900: #366923,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgb(36, 36, 36),
+    400: rgb(36, 36, 36),
+    500: rgb(36, 36, 36),
+    600: rgb(255, 255, 255),
+    700: rgb(255, 255, 255),
+    800: rgb(255, 255, 255),
+    900: rgb(255, 255, 255),
+  ),
+);
+$simple-pallette:(
+  50:#3e94e0,
+  100:#3e94e0,
+  700: #3e94e0,
+  contrast: (
+    50:white,
+    100:white,
+    700:white,
+  )
+);
+$my-primary: mat.define-palette($urbanlaundry-palette, 700);
+$my-accent: mat.define-palette($simple-pallette,50);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      foreground: $urbanlaundry-palette,
+    ),
+  )
+);
+@include mat.core-theme($my-theme);
+@include mat.button-theme($my-theme);
+@include mat.tabs-theme($my-theme);
+@include mat.input-theme($my-theme);
+@include mat.form-field-theme($my-theme);
+@include mat.progress-spinner-theme($my-theme);
+@include mat.checkbox-color($my-theme);
+@include mat.datepicker-theme($my-theme);
+@include mat.datepicker-color($my-theme);
+@include mat.all-component-themes($my-theme);
+
+@import url('./assets/scss/Fonts.scss');
+@import url('./assets/scss/Responsive.scss');
+@import url('./assets/scss/Text.scss');
+@import url('./assets/scss/background.scss');
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+
+:root {
+  --color-primary: #0a4a28;
+  --color-secondary: #579540;
+  --color-tertiary: #ffffff;
+  --color-quaternary: #efffea;
+  --color-quinary: #000000;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Lato";
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: var(--primary);
+  color: var(--tertiary);
+}
+
+.uk-dropdown[_ngcontent-pop-c18] ul[_ngcontent-pop-c18] {
+  width: 7rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  &::hover {
+    background-color: #000;
+    color: #fff;
+  }
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 4px 4px 0 0;
+  padding: 0;
+}
+.mat-paginator {
+  display: block;
+  border-radius: 1rem;
+}
+.mat-paginator-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 8px;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+  background: var(--color-secondary);
+  border-radius: 1rem;
+  // color: black;
+}
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0;
+}
+.mat-tab-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+div[class*="stage_"]{
+  padding: 7px;
+  border-radius: 7px;
+  // color: #D37F07;
+}
+div[class*="stage_"]:hover{
+  cursor: pointer;
+}
+div.stage_cancelled{
+  background-color:  #ffc4c4;
+  border:2px solid #ff3e3e;
+  color: #ff3e3e;
+}
+
+
+div.stage_pending{
+  background-color: #fff;
+  border:2px solid #D37F07;
+  color: #D37F07;
+}
+div.stage_pickupAssigned{
+  background-color: #fff;
+  border:2px solid #388456;
+  color: #388456;
+}
+div.stage_pickupRecieved{
+  background-color: #fff;
+  border:2px solid #4478c6;
+  color: #4478c6;
+}
+div.stage_pickupCompleted{
+  background-color: #fff;
+  border:2px solid #5544c6;
+  color: #5544c6;
+}
+div.stage_washInProgress{
+  background-color: #fff;
+  border:2px solid #c644c6;
+  color: #c644c6;
+}
+div.stage_washCompleted{
+  background-color: #fff;
+  border:2px solid #ffec1d;
+  color: #2b2b2b;
+}
+div.stage_deliveryAssigned{
+  background-color: #fff;
+  border:2px solid #448ec6;
+  color: #448ec6;
+}
+div.stage_deliveryCompleted{
+  background-color: #fff;
+  border:2px solid #35b246;
+  color: #35b246;
+}
+
+
+
+.uk-table td {
+  padding: 12px 3px;
+  vertical-align: top;
+  vertical-align: middle;
+}
+.uk-table th {
+  padding: 5px 3px;
+}
+.uk-table{
+  border-radius: 15px;
+}
+
+mat-expansion-panel {
+  border-top: 1px solid #d7d4d4;
+  border-right: 1px solid #d7d4d4;
+  border-left: 1px solid #d7d4d4;
+
+  border-radius: 5px;
+  box-shadow: none !important;
+  margin: 0 2px;
+  
+}
+mat-expansion-panel:first-child {
+  margin-top: 30px;
+}
+mat-expansion-panel:last-child {
+  border-bottom: 1px solid #d7d4d4;
+}

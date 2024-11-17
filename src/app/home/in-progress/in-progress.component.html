@@ -1,0 +1,140 @@
+<div class="w-100 d-flex justify-content-end my-3">
+    <button class="mx-3" mat-stroked-button color="primary">
+        <mat-icon>refresh</mat-icon>Refresh
+    </button>
+    <button class="mx-3" mat-stroked-button color="primary">
+        <mat-icon>filter</mat-icon>Clear Filter
+    </button>
+    <button mat-raised-button color="primary">
+        Enter the date Range<mat-icon>filter</mat-icon>
+    </button>
+</div>
+
+
+
+
+
+<div class="grid-2 w-100 justify-content-between align-items-center border head my-4">
+    <div class="Lato400 fs-15" >Order ID</div>
+    <div class="Lato400 fs-15" >Service</div>
+    <div class="Lato400 fs-15" >Customer Name</div>
+    <div class="Lato400 fs-15" >Weight</div>
+    <!-- <div class="Lato400 fs-15" >Estimate Price</div> -->
+    <div class="Lato400 fs-15" >Status</div>
+    <div class="Lato400 fs-15 ms-3">Action</div>
+</div>
+<mat-expansion-panel hideToggle *ngFor="let booking of AllBookings">
+    <mat-expansion-panel-header>
+        <div class="grid-2 w-100 justify-content-between align-items-center">
+            <div class="text-uppercase">{{booking?.id | slice:0:6}}</div>
+            <div><span *ngFor="let services of booking.services">{{services.name}},</span></div>
+            <div>{{booking.userDetails.displayName }}</div>
+            
+            <div>{{booking.billingDetail.grandTotal || 0}} </div>
+            <div>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Ready to Deliver</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="ms-3"><button mat-stroked-button color="warn">Cancel</button></div>
+        </div>
+    </mat-expansion-panel-header>
+
+    <div>
+        <div class="Lato600 fs-18 my-4">Customer Details</div>
+        <div class="d-flex w-100 justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <div class="img-outer">
+                    <img src="https://wallpapers.com/images/hd/cool-neon-blue-profile-picture-u9y9ydo971k9mdcf.jpg"
+                        alt="">
+                </div>
+                <div class="ms-2">
+                    <div class="Lato400 fs-16">Name : {{booking.userDetails.displayName }}</div>
+                    <div class="Lato400 fs-16 mt-2">Email : {{booking.userDetails.email }}</div>
+                </div>
+            </div>
+            <div>
+                <div class="d-flex align-items-center">
+                    <mat-icon>location_on</mat-icon>
+                    <div class="Lato400 fs-16 ms-3">{{booking.userDetails.deliveryAddress }}</div>
+                </div>
+                <div class="d-flex align-items-center mt-2">
+                    <mat-icon>call</mat-icon>
+                    <div class="Lato400 fs-16 ms-3">Phone : {{booking.userDetails.phone }}</div>
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div><mat-icon>call</mat-icon></div>
+                <div class="ms-3"><mat-icon>mail</mat-icon></div>
+            </div>
+        </div>
+        <div class="Lato600 fs-18 my-4">Order Details</div>
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="Lato400 fs-16 my-1">Order ID: {{booking?.id | slice:0:6}} </div>
+            <div class="Lato400 fs-16 my-1"> Pickup : {{booking.slot.date.toDate() | date }}, {{booking.slot.date.toDate() | date:'h:mm a' }}</div>
+            <div class="Lato400 fs-16 my-1">Expected Delivery :  {{booking.slot.date.toDate() | date }}, {{booking.slot.date.toDate() | date:'h:mm a' }}</div>
+        </div>
+        <div class="border my-3"></div>
+        <div class="d-flex align-items-center justify-content-between">
+            <div class=" BR10 py-3 w-100">
+                <div class="Lato600 fs-16 px-3 pb-2 d-flex justify-content-between align-items-center">
+                    <div>Order Summary</div>
+                    <div class="Lato500 fs-14">Paytm Wallet: ₹1502</div>
+                </div>
+                <div class="border"></div>
+                <div class="Lato500 fs-14 t-black pt-2 px-3 d-flex justify-content-between align-items-center">
+                    <div>couponCodeId</div>
+                    <div>{{booking.billingDetail.couponCodeId}}</div>
+                </div>
+                <div class="Lato500 fs-14 t-black pt-2 px-3 d-flex justify-content-between align-items-center">
+                    <div>Pant - 3</div>
+                    <div>{{booking.billingDetail.discount}}</div>
+                </div>
+                <div class="Lato500 fs-14 t-black pt-2 px-3 d-flex justify-content-between align-items-center">
+                    <div>Discount</div>
+                    <div>{{booking.billingDetail.discount}}</div>
+                </div>
+                <div class="Lato500 fs-14 t-black pt-2 px-3 d-flex justify-content-between align-items-center">
+                    <div>Tax</div>
+                    <div>{{booking.billingDetail.tax}}</div>
+                </div>
+                <div class="Lato500 fs-14 t-black pt-2 px-3 d-flex justify-content-between align-items-center">
+                    <div>Total</div>
+                    <div>{{booking.billingDetail.total}}</div>
+                </div>
+                
+            </div>
+            <div class="borderGrey BR10 py-3 ms-3 w-100">
+                <div class="Lato600 fs-16 px-3 pb-2 d-flex justify-content-between align-items-center">
+                    <div>Billing Summary</div>
+                    <div class="Lato500 fs-14">Paytm Wallet: ₹1502</div>
+                </div>
+                <div class="border"></div>
+                <div class="Lato500 fs-14 t-black pt-2 px-3 d-flex justify-content-between align-items-center">
+                    <div>couponCodeId</div>
+                    <div>{{booking.billingDetail.couponCodeId}}</div>
+                </div>
+                <div class="Lato500 fs-14 t-black pt-2 px-3 d-flex justify-content-between align-items-center">
+                    <div>Pant - 3</div>
+                    <div>{{booking.billingDetail.discount}}</div>
+                </div>
+                <div class="Lato500 fs-14 t-black pt-2 px-3 d-flex justify-content-between align-items-center">
+                    <div>Discount</div>
+                    <div>{{booking.billingDetail.discount}}</div>
+                </div>
+                <div class="Lato500 fs-14 t-black pt-2 px-3 d-flex justify-content-between align-items-center">
+                    <div>Tax</div>
+                    <div>{{booking.billingDetail.tax}}</div>
+                </div>
+                <div class="Lato500 fs-14 t-black pt-2 px-3 d-flex justify-content-between align-items-center">
+                    <div>Total</div>
+                    <div>{{booking.billingDetail.total}}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</mat-expansion-panel>

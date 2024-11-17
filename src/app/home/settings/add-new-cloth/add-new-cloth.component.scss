@@ -1,0 +1,27 @@
+main{
+    padding: 20px;
+    min-width: 400px;
+    // min-height: 300px;
+    border-radius: 20px;
+    background: white;
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        mat-form-field{
+            width: 100%;
+        }
+        .actions{
+            gap: 15px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            .row{
+                display: flex;
+                gap: 20px;
+            }
+        }
+    }
+}

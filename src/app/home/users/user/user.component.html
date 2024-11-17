@@ -1,0 +1,65 @@
+<div id="user_container" *ngIf="user">
+  <div id="card">
+    <div id="img_cont">
+      <img [src]=user.photoURL/>
+      <button>
+        <i class="ri-camera-line"></i>
+      </button>
+    </div>
+    <div class="edit_user">
+      Edit user
+      <i class="ri-edit-2-fill"></i>
+    </div>
+  </div>
+  <div id="form">
+    <div class="form_box">
+      <p>First Name :</p>
+      <div class="text_cont">{{user.displayName}} </div>
+      <!-- <input type="text"> -->
+    </div>
+
+    <div class="form_box">
+      <p>Short Name :</p>
+      <div class="text_cont">{{user.displayName}}</div>
+      <!-- <input type="text"> -->
+    </div>
+
+    <div class="form_box">
+      <p>Email Address :</p>
+      <div class="text_cont">{{user.email}}</div>
+      <!-- <input type="text"> -->
+    </div>
+
+    <div class="form_box">
+      <p>Phone Number :</p>
+      <div class="text_cont">{{user.phoneNumber ? user.phoneNumber : "N/A"}}</div>
+      <!-- <input type="text"> -->
+    </div>
+
+    <div class="form_box">
+      <p>Country Name :</p>
+      <div class="text_cont">{{user.countryName ? user.countryName : "N/A"}}</div>
+      <!-- <input type="text"> -->
+    </div>
+
+    <div class="form_box">
+      <p>State Name :</p>
+      <div class="text_cont">{{user.stateName ? user.stateName : "N/A"}}</div>
+      <!-- <input type="text"> -->
+    </div>
+
+    <div class="form_box">
+      <p>City Name :</p>
+      <div class="text_cont">{{user.cityName ? user.cityName : "N/A"}}</div>
+      <!-- <input type="text"> -->
+    </div>
+   
+    <div class="form_box">
+      <p>Address:</p>
+      <div class="text_cont add1">{{user.address ? user.address : "N/A"}}</div>
+      <!-- <textarea id="w3review" name="w3review" rows="4" cols="50">
+        </textarea> -->
+    </div>
+
+  </div>
+</div>

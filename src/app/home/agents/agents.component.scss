@@ -1,0 +1,309 @@
+.header_bar {
+  width: 100%;
+  min-height: 10vh;
+  height: fit-content;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: fle;
+  justify-content: flex-end;
+
+  gap: 0;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+  .mat-form-field,
+  button,
+  .uk-inline {
+    height: 3.7rem;
+    width: 13rem;
+    padding: 0;
+    margin: 0;
+    border-radius: 0.9rem;
+    font-size: 1rem;
+    transform: scale(0.8);
+
+    button {
+      // font-size: 0.6rem;
+      background: transparent;
+      border: none;
+      height: 100%;
+    }
+    i {
+      font-size: 1rem;
+      margin: 0;
+    }
+    ul {
+      cursor: pointer;
+      padding: 0;
+      list-style-type: none;
+      li {
+        list-style-type: none;
+        padding: 0.5rem;
+        &:hover {
+          background-color: var(--color-secondary);
+          color: #fff;
+        }
+      }
+    }
+    cursor: pointer;
+    color: var(--color-tertiary);
+    background-color: var(--color-secondary);
+    border: none;
+    min-width: 9rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    input {
+      background-color: transparent;
+      border: none;
+      color: var(--color-quaternary);
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      font-size: 0.8rem;
+      width: 90%;
+      border: none;
+    }
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+      border-radius: 4px 4px 0 0;
+      padding: 0;
+    }
+  }
+  .refresh {
+    background-color: var(--color-tertiary);
+    color: var(--color-secondary);
+    justify-content: space-between;
+    font-size: 1.3rem;
+    i {
+      font-size: 1.3rem;
+      margin: 0 1rem;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    justify-content: space-between;
+    margin: 0;
+    .mat-form-field,
+    button,
+    .uk-inline {
+      transform: scale(0.72);
+      width: 7rem;
+      margin: 0;
+    }
+  }
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin: 1rem 0;
+  width: 50%;
+  .card {
+    border: 2px solid #84bc6f;
+    padding:.5rem ;
+    width: 7rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #84bc6f;
+    font-weight: 600;
+    gap: 0.5rem;
+  }
+  .unsettled {
+    border: 2px solid #f56606;
+    color: #f56606;
+  }
+}
+
+
+
+#newUser {
+  .uk-modal-dialog {
+    width: 55vw;
+    height: fit-content;
+    border-radius: 1rem;
+    position: relative;
+    .search11 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+      margin: 1rem auto;
+      box-shadow: none;
+      outline: none;
+      .uk-search {
+        height: 100%;
+        width: 100%;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        outline: none;
+        @media screen and (max-width: 600px) {
+          display: none;
+        }
+      }
+    }
+    .ri-close-circle-line {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2rem;
+      color: var(--color-quinary);
+      cursor: pointer;
+    }
+    .modal-header {
+      width: 100%;
+      height: 10vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-quinary);
+    }
+    .user {
+      width: 100%;
+      height: 8rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 1rem;
+      cursor: pointer;
+      img {
+        height: 6.5rem;
+        width: 6.5rem;
+        border-radius: 50%;
+        position: relative;
+      }
+      .cam {
+        position: relative;
+        bottom: 0rem;
+        left: -2rem;
+        font-size: 1rem;
+        background-color: var(--color-quaternary);
+        height: 1.5rem;
+        width: 1.5rem;
+
+        border-radius: 20%;
+        color: var(--color-quinary);
+      }
+      button {
+        margin: 0 0.7rem;
+        font-size: 1.2rem;
+        border: none;
+        background-color: var(--color-quaternary);
+        color: var(--color-secondary);
+        height: 2rem;
+        width: 2rem;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+          rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        border-radius: 0.5rem;
+      }
+    }
+  }
+}
+.userForm {
+  width: 100%;
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem auto;
+  flex-wrap: wrap;
+  input,
+  textarea,
+  select {
+    width: 45%;
+    height: 3rem;
+    border-radius: 0.6rem;
+    border: 2px solid #595959;
+
+    padding: 0.6rem 1rem;
+    outline: none;
+  }
+  button {
+    width: 30%;
+    margin: 1rem auto;
+    height: 3rem;
+    border-radius: 0.6rem;
+    border: none;
+    background-color: var(--color-secondary);
+    color: var(--color-quaternary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+#deleteUser {
+  .uk-modal-dialog {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    width: 30vw;
+    height: 30vh;
+    flex-direction: column;
+    p {
+      font-size: 1.2rem;
+    }
+    i {
+      font-size: 2rem;
+    }
+    .buttons {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      button {
+        width: 45%;
+        height: 3rem;
+        border-radius: 0.6rem;
+        border: none;
+
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      button:nth-child(1) {
+        background-color: var(--color-quaternary);
+        color: var(--color-secondary);
+      }
+      button:nth-child(2) {
+        background-color: var(--color-secondary);
+        color: var(--color-quaternary);
+      }
+    }
+  }
+}
+.mat-paginator-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 8px;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+  background: #ffb4e7;
+  color: black;
+}
+.mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
+}
+.actions{
+  display: flex;
+  gap:20px;
+  justify-content: flex-end;
+  div{
+      display: flex;
+      gap: 10px;
+      // align-items: center;
+  }
+}
+
+mat-form-field{
+  transform: scale(.76);
+  margin-top: -.7rem;
+}

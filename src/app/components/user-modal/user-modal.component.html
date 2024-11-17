@@ -1,0 +1,75 @@
+<div id="newBooking" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+      <i class="ri-close-circle-line" uk-toggle="target: #newBooking"></i>
+      <b class="modal-header">New Booking</b>
+      <p class="nameHead">Select Service</p>
+      <div class="services">
+        <div class="service">
+          <img src="assets/service4.png" class="service-icon" />
+          <b class="service-name">Wash</b>
+        </div>
+        <div class="service">
+          <img src="assets/service3.png" class="service-icon" />
+          <b class="service-name">Wash & Iron</b>
+        </div>
+        <div class="service">
+          <img src="assets/service2.png" class="service-icon" />
+          <b class="service-name">Iron</b>
+        </div>
+        <div class="service">
+          <img src="assets/service1.png" class="service-icon" />
+          <b class="service-name">Dry Clean</b>
+        </div>
+      </div>
+      <div class="uk-margin search11">
+        <form class="uk-search uk-search-default">
+          <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+          <input
+            class="uk-search-input"
+            type="search"
+            placeholder="Search Shirt,Pant Or Short ..."
+            aria-label="Search"
+          />
+        </form>
+      </div>
+      <div class="products">
+        <div class="product">
+          <img src="assets/service1.png" class="product-img" />
+          <div class="product-name">Shirt</div>
+          <span uk-icon="icon: minus" (click)="remove(1)" ></span>
+          <b>{{service1}}</b>
+          <i class="ri-add-line" (click)="add(1)" ></i>
+        </div>
+        <div class="product">
+          <img src="assets/service4.png" class="product-img" />
+          <div class="product-name">Shirt</div>
+         <span uk-icon="icon: minus" (click)="remove(2)" ></span>
+          <b>{{service2}}</b>
+          <i class="ri-add-line" (click)="add(2)"></i>
+        </div>
+        <div class="product">
+          <img src="assets/service1.png" class="product-img" />
+          <div class="product-name">Shirt</div>
+         <span uk-icon="icon: minus"  (click)="remove(3)" ></span>
+          <b>{{service3}}</b>
+          <i class="ri-add-line" (click)="add(3)"></i>
+        </div>
+        <div class="product">
+          <img src="assets/service1.png" class="product-img" />
+          <div class="product-name">Shirt</div>
+         <span uk-icon="icon: minus"  (click)="remove(4)" ></span>
+          <b>{{service4}}</b>
+          <i class="ri-add-line" (click)="add(4)"></i>
+        </div>
+      </div>
+      <form class="orderForm">
+        <input placeholder="Full Name" />
+        <input placeholder="PinCode" />
+        <input placeholder="Alternative Phone No" />
+        <input placeholder="Landmark" />
+        <input placeholder="Phone No" />
+        <input placeholder="Address" />
+        <button>Submit</button>
+      </form>
+    </div>
+  </div>

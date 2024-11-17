@@ -1,0 +1,13 @@
+<section>
+  <mat-card *ngFor="let report of reports">
+    <mat-card-header>
+      <mat-icon color="primary">{{report.icon}}</mat-icon>
+      <mat-card-title>{{report.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{report.description}}</p>
+      <button mat-stroked-button routerLink=":id" color="primary">See Report</button>
+    </mat-card-content>
+  </mat-card>
+</section> 
+

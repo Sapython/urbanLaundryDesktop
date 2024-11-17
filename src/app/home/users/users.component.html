@@ -1,0 +1,151 @@
+<!--  NEW UI -->
+<div class="header">
+  <div class="search"><i class="ri-search-line"></i><input type="text" placeholder="Search"></div>
+  <div class="w-100 d-flex justify-content-end my-3">
+    <button class="mx-3" mat-stroked-button color="primary">
+      <mat-icon>refresh</mat-icon>Refresh
+    </button>
+    <button class="mx-3" mat-stroked-button color="primary">
+      <mat-icon>filter</mat-icon>Clear Filter
+    </button>
+    <button mat-raised-button color="primary">
+      Enter the date Range<mat-icon>filter</mat-icon>
+    </button>
+  </div>
+</div>
+
+
+<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let area of areasList">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{area.name}}
+    </mat-panel-title>
+    <mat-panel-description>
+
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div class="d-flex align-items-center mb-3">
+    <div class="borderDarkGreen BR10 d-flex align-items-center flex-column px-5 py-2">
+      <div class="Lato600 fs-22 t-green">26</div>
+      <div class="Lato400 fs-14 t-green">Orders</div>
+    </div>
+    <div class="borderDarkGreen BR10 d-flex align-items-center flex-column px-5 py-2 ms-2">
+      <div class="Lato600 fs-22 t-green">26</div>
+      <div class="Lato400 fs-14 t-green">Orders</div>
+    </div>
+    <div class="borderDarkGreen BR10 d-flex align-items-center flex-column px-5 py-2 ms-2">
+      <div class="Lato600 fs-22 t-green">26</div>
+      <div class="Lato400 fs-14 t-green">Orders</div>
+    </div>
+    <div class="borderDarkGreen BR10 d-flex align-items-center flex-column px-5 py-2 ms-2">
+      <div class="Lato600 fs-22 t-green">26</div>
+      <div class="Lato400 fs-14 t-green">Orders</div>
+    </div>
+  </div>
+  <div>
+    <div class="borderGrey grid justify-content-between align-items-center p-2 mb-3">
+      <div>Customer Name</div>
+      <div>Mobile Number</div>
+      <div>Total orders</div>
+      <div>Orders/Week</div>
+      <div>Pending </div>
+      <div>Last Bills</div>
+      <div>Total Bills</div>
+      <div>Action</div>
+    </div>
+    <mat-expansion-panel hideToggle *ngFor="let customer of customersList">
+      <mat-expansion-panel-header>
+        <div class="grid w-100 justify-content-between align-items-center">
+          <div class="text-uppercase">{{customer.displayName | slice:0:6}}</div>
+          <div>{{customer.phone || 'Not Verified'}}</div>
+          <div>14</div>
+          <div>15</div>
+          <div>225</div>
+          <div>100</div>
+          <div>100</div>
+          <div>
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </div>
+        </div>
+      </mat-expansion-panel-header>
+
+      <div>
+        <div class="Lato600 fs-18 my-4">Customer Details</div>
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <div class="img-outer">
+              <img [src]="customer.photoURL" alt="">
+            </div>
+            <div class="ms-2">
+              <div class="Lato400 fs-16">Name : {{customer.displayName }}</div>
+              <div class="Lato400 fs-16 mt-2">Email : {{customer.email }}</div>
+            </div>
+          </div>
+          <div>
+            <div class="d-flex align-items-center">
+              <mat-icon>location_on</mat-icon>
+              <div class="Lato400 fs-16 ms-3">{{customer.currentAddress?.address }}</div>
+            </div>
+            <div class="d-flex align-items-center mt-2">
+              <mat-icon>call</mat-icon>
+              <div class="Lato400 fs-16 ms-3">Phone : {{customer.phone }}</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center">
+            <div><mat-icon>call</mat-icon></div>
+            <div class="ms-3"><mat-icon>mail</mat-icon></div>
+          </div>
+        </div>
+        <div class="Lato600 fs-18 my-4">Order Details</div>
+        <div class="d-flex align-items-center justify-content-between">
+
+        </div>
+
+        <div class="d-flex align-items-center justify-content-between">
+          <div class=" BR10 py-3 w-100">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="Lato500 fs-16 ">Last 5 Bookings From {{customer.displayName }}</div>
+              <div>
+                <button mat-raised-button color="primary" routerLink="/admin/userDetails/{{customer.id}}">
+                  View All Bookings
+                </button>
+              </div>
+            </div>
+            <table class="uk-table ">
+              <thead class="borderGrey BR10">
+                <tr>
+                  <th>Orders</th>
+                  <th>Services</th>
+                  <th>Weight</th>
+                  <th>Pickup Time</th>
+                  <th>Delivery Time</th>
+                  <th>Status</th>
+                  <th>total Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let booking of AllBookings">
+                  <tr class="borderGrey BR10" *ngIf="booking.userDetails.userId == customer.id">
+                    <td class="text-uppercase">{{booking.id | slice:0:6}}</td>
+                    <td><span *ngFor="let services of booking.services">{{services.name}} , </span></td>
+                    <td>12kg</td>
+                    <td>{{booking.slot.date.toDate() | date }}, {{booking.slot.date.toDate() | date:'h:mm a' }}</td>
+                    <td>{{booking.slot.date.toDate() | date }}, {{booking.slot.date.toDate() | date:'h:mm a' }}</td>
+                    <td>{{booking.stage.stage}}</td>
+                    <td>{{booking.billingDetail.total}}</td>
+                  </tr>
+                </ng-container>
+
+
+              </tbody>
+            </table>
+          </div>
+
+
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </div>
+</mat-expansion-panel>
